@@ -9,11 +9,17 @@ public class Dinosaur extends GameObject{
 	public static boolean needImage = true;
 	public static boolean gotImage = false;	
 	boolean jump;
-	double weight = 0.6;
+	public double weight;
+	double targetweight = weight;
 	double jumpStrength;
-	Dinosaur(int x, int y, int width, int height) {
+	public int difficulty;
+	final int EASY = 1;
+	final int MEDIUM = 2;
+	final int HARD = 3;
+	public Dinosaur(int x, int y, int width, int height, double weight) {
 		super(x, y, width, height);
 		// TODO Auto-generated constructor stub
+		this.weight=weight;
 		if (needImage) {
 	        loadImage ("dino.jpg");
 	    }
@@ -30,6 +36,13 @@ public class Dinosaur extends GameObject{
 		super.update();
 	}
 	public void jump() {
+		if(difficulty==EASY) {
+			weight=0.6;
+		} else if(difficulty==MEDIUM) {
+			weight=0.8;
+		} else if(difficulty==HARD) {
+			weight=1;
+		}
 		if(jump) {
 			if(y>=500) {
 				jumpStrength=16;
@@ -39,8 +52,12 @@ public class Dinosaur extends GameObject{
 		}
 		if(y>=500) {
 			jump=false;
+			weight=targetweight;
 			y=500;
 		}
+	}
+	public void fall() {
+		weight*=15;
 	}
 	void loadImage(String imageFile) {
 	    if (needImage) {

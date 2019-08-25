@@ -9,20 +9,23 @@ public class ObjectManager implements ActionListener{
 	ArrayList <Cactus> cactuses = new ArrayList();
 	Random random = new Random();
 	int score = 0;
-	double speed = 3;
+	public double speed;
 	public int cactusTotal;
-	ObjectManager(Dinosaur dino){
+	public double speedincrement;
+	public ObjectManager(Dinosaur dino, double speed, double speedincrement){
 		this.dino = dino;
+		this.speed = speed;
+		this.speedincrement=speedincrement;
 	}
  	void addCactus() {
  		cactuses.add(new Cactus(Game.WIDTH,500,50,50,speed));
  		cactusTotal++;
- 		if(cactusTotal%4==0) {
- 			speed+=0.04;
+ 		if(cactusTotal%3==0) {
+ 			speed+=speedincrement;
  		}
  	}
  	void update() {
- 		System.out.println(speed);
+ 		System.out.println(speed+" "+speedincrement+ " " +dino.weight);
  		for(int i=0; i<cactuses.size(); i++) {
  			cactuses.get(i).update();
  			if(cactuses.get(i).y>Game.HEIGHT || cactuses.get(i).y<0 || cactuses.get(i).x>Game.WIDTH || cactuses.get(i).x<0) {
