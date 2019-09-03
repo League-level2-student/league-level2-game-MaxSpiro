@@ -83,14 +83,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		
 	}
 	void drawMenuState(Graphics g) {
-		g.setColor(Color.BLUE);
+		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, Game.WIDTH, Game.HEIGHT);
 		g.setFont(titleFont);
-		g.setColor(Color.YELLOW);
-		g.drawString("Cactus Jump", 75/500 * WIDTH, 100/800 * HEIGHT);
+		g.setColor(Color.GREEN);
+		g.drawString("Cactus Jump", 350, 250);
 		g.setFont(smallFont);
-		g.drawString("Press ENTER to start",100/500 * WIDTH,350/800 * HEIGHT);
-		g.drawString("Press SPACE for instructions", 50/500 * WIDTH, 500/800 * HEIGHT);
+		g.drawString("Press ENTER to start", 100, 500);
+		g.drawString("Press SPACE for instructions", 500, 500);
 	}
 	void drawSelectState(Graphics g) {
 		g.setColor(Color.WHITE);

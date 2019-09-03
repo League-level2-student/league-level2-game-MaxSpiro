@@ -36,13 +36,6 @@ public class Dinosaur extends GameObject{
 		super.update();
 	}
 	public void jump() {
-		if(difficulty==EASY) {
-			weight=0.6;
-		} else if(difficulty==MEDIUM) {
-			weight=0.8;
-		} else if(difficulty==HARD) {
-			weight=1;
-		}
 		if(jump) {
 			if(y>=500) {
 				jumpStrength=16;
