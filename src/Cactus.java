@@ -14,7 +14,7 @@ public class Cactus extends GameObject{
 		this.speed=speed;
 		// TODO Auto-generated constructor stub
 		if (needImage) {
-		    loadImage ("cactus.jpg");
+		    loadImage ("cactus.png");
 		}
 	}
 	void update() {

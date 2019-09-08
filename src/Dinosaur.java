@@ -20,7 +20,7 @@ public class Dinosaur extends GameObject{
 		// TODO Auto-generated constructor stub
 		this.weight=weight;
 		if (needImage) {
-	        loadImage ("dino.jpg");
+	        loadImage ("dino.png");
 	    }
 	}
 	void draw(Graphics g) {
