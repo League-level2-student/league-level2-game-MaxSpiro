@@ -93,8 +93,15 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		g.drawString("Press SPACE for instructions", 500, 500);
 	}
 	void drawSelectState(Graphics g) {
-		g.setColor(Color.WHITE);
+		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, Game.WIDTH, Game.HEIGHT);
+		g.setFont(smallFont);
+		g.setColor(Color.GREEN);
+		g.drawString("Press 1 for Easy",100,400);
+		g.drawString("Press 5 for Medium",375,450);
+		g.drawString("Press 9 for Hard",700,500);
+		g.setFont(titleFont);
+		g.drawString("Difficulty Select", 350, 250);
 	}
 	void drawGameState(Graphics g) {
 		g.drawImage(image,0,0,Game.WIDTH,Game.HEIGHT,null);
@@ -144,16 +151,12 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 				if(difficulty==EASY) {
 					dino = new Dinosaur(100,500,50,50,0.6);
 					objectmanager = new ObjectManager(dino,3.25,0.15);
-				
 				} else if(difficulty==MEDIUM) {
 					dino = new Dinosaur(100,500,50,50,0.8);
 					objectmanager = new ObjectManager(dino,4,0.25);
 				} else if(difficulty==HARD) {
 					dino = new Dinosaur(100,500,50,50,1);
 					objectmanager = new ObjectManager(dino,5.5,0.4);
-				} else {
-					dino = new Dinosaur(100,500,50,50,0.8);
-					objectmanager = new ObjectManager(dino,4,0.25);
 				}
 			}
 		}

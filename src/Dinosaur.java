@@ -10,7 +10,6 @@ public class Dinosaur extends GameObject{
 	public static boolean gotImage = false;	
 	boolean jump;
 	public double weight;
-	double targetweight = weight;
 	double jumpStrength;
 	public int difficulty;
 	final int EASY = 1;
@@ -36,6 +35,14 @@ public class Dinosaur extends GameObject{
 		super.update();
 	}
 	public void jump() {
+	System.out.println(difficulty);
+	if(difficulty==EASY) {
+		weight=0.6;
+	} else if(difficulty==MEDIUM) {
+		weight=0.8;	
+	} else if(difficulty==HARD) {
+		weight=1;
+	}
 		if(jump) {
 			if(y>=500) {
 				jumpStrength=16;
@@ -45,7 +52,6 @@ public class Dinosaur extends GameObject{
 		}
 		if(y>=500) {
 			jump=false;
-			weight=targetweight;
 			y=500;
 		}
 	}
